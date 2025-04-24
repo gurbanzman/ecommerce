@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
+import Navbar from "./navbar";
+import Footer from "./footer";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-})
-
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,10 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${dmSans.className} antialiased`}
-      >
-        {children}
+      <body className={`${dmSans.className} antialiased`}>
+        <div className="flex flex-col min-h-screen">
+          <Navbar />
+          <main className="flex-1 bg-[#f4f4f4]">{children}</main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

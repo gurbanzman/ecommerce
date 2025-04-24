@@ -1,0 +1,3 @@
+:-route - (home and etc) - localhost:3000/(home)/ - bu yazıldığında next js route-u anlar fakat url-de yazdırmaz.
+
+:-layout.tsx - html structure - parent div - styles - flex flex-col min-h-screen, footer-un en altta kalmasını istiyorsak, main-e class-na bunu yazıcaz - main - styles - flex-1 : artık footer tüm sayfalar için otomatik en altta kalıcak.
