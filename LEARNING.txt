@@ -1,3 +1,5 @@
 :-route - (home and etc) - localhost:3000/(home)/ - bu yazıldığında next js route-u anlar fakat url-de yazdırmaz.
 
 :-layout.tsx - html structure - parent div - styles - flex flex-col min-h-screen, footer-un en altta kalmasını istiyorsak, main-e class-na bunu yazıcaz - main - styles - flex-1 : artık footer tüm sayfalar için otomatik en altta kalıcak.
+
+:-asChild term - Shadcn gibi kütüphanelerde kullanılır. Manası şu, Button componenti içerisinde diyelim Link yazarsak ve asChild kullanmazsak, Button componenti bir button elementi üretir ve a elementini de onun içerisine koyar. Bu semantik açıdan yanlış ve bazı durumlarda hatta çalışmaya bilir. asChild method-u Button component-ne verildiği zaman şunu der: içinde kullandığın Link elementini button-nun yerine koy, ona verilen stiller a elementine de uygula. Ve boylece Button componenti yalnizca a elementi uretmis olur. Bu da kod bakımından çok temiz ve CEO tarafından da faydalı olur.
