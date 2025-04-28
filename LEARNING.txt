@@ -3,3 +3,12 @@
 :-layout.tsx - html structure - parent div - styles - flex flex-col min-h-screen, footer-un en altta kalmasını istiyorsak, main-e class-na bunu yazıcaz - main - styles - flex-1 : artık footer tüm sayfalar için otomatik en altta kalıcak.
 
 :-asChild term - Shadcn gibi kütüphanelerde kullanılır. Manası şu, Button componenti içerisinde diyelim Link yazarsak ve asChild kullanmazsak, Button componenti bir button elementi üretir ve a elementini de onun içerisine koyar. Bu semantik açıdan yanlış ve bazı durumlarda hatta çalışmaya bilir. asChild method-u Button component-ne verildiği zaman şunu der: içinde kullandığın Link elementini button-nun yerine koy, ona verilen stiller a elementine de uygula. Ve boylece Button componenti yalnizca a elementi uretmis olur. Bu da kod bakımından çok temiz ve CEO tarafından da faydalı olur.
+
+:-page.tsx & index.tsx - Bunlar aralarındaki en büyük fark: page yazdığımızda route olarak belirleniyor. İndex yazdığımızda ise component olarak tasarlanıyor.
+
+:-Position top bottom left right (example: -2px -3px) - Tailwindde -bottom-3 şeklinde yazıyoruz. Karşısına - işaretini koyduğumuz zaman sistem kendisi otomatik anlıyor.
+
+:-ref.current.getBoundingClientRect() - HTML elementlerinin pozisyonları hakkında (width, height, top, left, bottom, right) infolar verir.
+
+:-Payload
+   :-db:fresh - bu command logout oldukdan sonra parola eğer unutulursa, payload yenileniyor ve /admin route-da yeni bir parola yazarak giriş edile biliyor.

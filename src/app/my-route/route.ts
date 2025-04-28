@@ -7,8 +7,14 @@ export const GET = async () => {
   })
 
   const data = await payload.find({
-    collection: 'categories',
-  })
+    collection: "categories",
+    depth: 1,
+    where: {
+      parent: {
+        exists: false,
+      },
+    },
+  });
 
   return Response.json(data)
 }
