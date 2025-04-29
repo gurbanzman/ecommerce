@@ -7,6 +7,7 @@ import SearchFilters from "./search-filters";
 import configPromise from "@payload-config";
 import { getPayload } from "payload";
 import { Category } from "@/payload-types";
+import { CustomCategory } from "./types";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
@@ -34,8 +35,9 @@ export default async function RootLayout({
         exists: false,
       },
     },
+    sort: "name",
   });
-  const formattedData = data.docs.map((doc) => ({
+  const formattedData: CustomCategory[] = data.docs.map((doc) => ({
     ...doc,
     subcategories: (doc.subcategories?.docs ?? []).map((doc) => ({
       // Because of "depth: 1" we are confident "doc" will be a type of "Category"
