@@ -10,5 +10,8 @@
 
 :-ref.current.getBoundingClientRect() - HTML elementlerinin pozisyonları hakkında (width, height, top, left, bottom, right) infolar verir.
 
+
 :-Payload
    :-db:fresh - bu command logout oldukdan sonra parola eğer unutulursa, payload yenileniyor ve /admin route-da yeni bir parola yazarak giriş edile biliyor.
+
+   :-db:seed - bu command sayesinde direkt categories db-e aktarılıyor.
