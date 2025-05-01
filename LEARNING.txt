@@ -15,3 +15,9 @@
    :-db:fresh - bu command logout oldukdan sonra parola eğer unutulursa, payload yenileniyor ve /admin route-da yeni bir parola yazarak giriş edile biliyor.
 
    :-db:seed - bu command sayesinde direkt categories db-e aktarılıyor.
+
+
+:-tRPC - (TypeScript Remote Procedure Call), istemci ve sunucu arasında iletişimi sağlarken otomatik olarak tip paylaşımı yapmanı sağlar
+   :-API endpoint’leri yazmazsın (örneğin /api/users gibi).
+   :-Tipleri manuel olarak paylaşmazsın.
+   :-JSON şemaları ya da GraphQL şemaları yazmana gerek kalmaz.
