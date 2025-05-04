@@ -3,15 +3,10 @@ import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
 
 import type { Metadata } from "next";
 import { getQueryClient, trpc } from "@/trpc/server";
-import { DM_Sans } from "next/font/google";
 import "../globals.css";
 import Navbar from "./navbar";
 import Footer from "./footer";
 import SearchFilters, { SearchFiltersSkeleton } from "./search-filters";
-
-const dmSans = DM_Sans({
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -27,19 +22,15 @@ export default async function RootLayout({
   void queryClient.prefetchQuery(trpc.categories.getMany.queryOptions());
 
   return (
-    <html lang="en">
-      <body className={`${dmSans.className} antialiased`}>
-        <div className="flex flex-col min-h-screen">
-          <Navbar />
-          <HydrationBoundary state={dehydrate(queryClient)}>
-            <Suspense fallback={<SearchFiltersSkeleton />}>
-              <SearchFilters />
-            </Suspense>
-          </HydrationBoundary>
-          <main className="flex-1 bg-[#f4f4f4]">{children}</main>
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <HydrationBoundary state={dehydrate(queryClient)}>
+        <Suspense fallback={<SearchFiltersSkeleton />}>
+          <SearchFilters />
+        </Suspense>
+      </HydrationBoundary>
+      <main className="flex-1 bg-[#f4f4f4]">{children}</main>
+      <Footer />
+    </div>
   );
 }
