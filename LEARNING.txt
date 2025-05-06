@@ -25,3 +25,16 @@
    :- işleme mantığı tam olarak APİ yazmaya gerek kalmadan direkt fonksiyonlarla ilişkilerin kurulması.
 
 :-Hydration errors and solves- delete html & body tags in layout.tsx in app folder - bunun sebebi (home) içinde layout olduğundan onlar her seferinde iç içe yerleştiriliyordu. Yani önceki html ile body de body içerisinde yazılıyordu. Bu da Next JS-te hiyerarşisin bozulmasına sebep oluyordu. İlkin layout-dan html ve body tag-larini çıkartdıkdan sonra sadece 1 tane olarak kalıcak duruma getirdik ve sorunu hall ettik.
+
+:-NUQS - Next.js + Zod + cookie state için yapılmış küçük bir kütüphanedir.
+   :-Nuqs = Next.js + useQueryState + Zod + Cookie
+      :-URL query string veya cookie ile global state tutmak için kullanılır.
+      :-Örneğin kullanıcı bir filtre seçti, ama bu bilgi sayfa yenilense bile kaybolmasın istiyorsun.
+      :-Redux veya context kullanmak yerine, Nuqs ile bu state'i cookie'de saklayabilirsin.
+
+   Ne zaman kullanılır? :
+      :-Filtreleme (kategori, fiyat aralığı gibi)
+      :-Kullanıcı tercihleri (tema: dark/light)
+      :-Sıralama seçenekleri
+      :-Arama terimleri
+      :-Sayfa yeniden yüklense bile hatırlanması gereken geçici veriler
