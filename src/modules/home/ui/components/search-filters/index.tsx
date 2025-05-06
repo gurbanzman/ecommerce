@@ -38,7 +38,7 @@ const SearchFilters = () => {
         <Categories data={data} />
       </div>
       <BreadcrumbNavigation
-        activeCategory={activeCategory}
+        activeCategory={activeCategory ?? null}
         activeCategoryName={activeCategoryName}
         activeSubcategoryName={activeSubcategoryName}
       />
