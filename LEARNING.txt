@@ -38,3 +38,13 @@
       :-Sıralama seçenekleri
       :-Arama terimleri
       :-Sayfa yeniden yüklense bile hatırlanması gereken geçici veriler
+
+:-{new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD"
+}).format(price)} - 
+         :-Intl.NumberFormat - JavaScript’in dahili bir sınıfıdır. Sayıları farklı ülke ve dil formatlarına göre biçimlendirmeye yarar.
+         :-"en-US" - Bu, biçimlendirmeyi Amerikan İngilizcesine göre yapmasını söyler.
+         Yani binlik ayracı olarak virgül, ondalık ayracı olarak nokta kullanır.
+         :-{ style: "currency", currency: "USD" } - Bu ayarlar şunları der: style: "currency" → Bu bir para birimi olacak. currency: "USD" → Kullanılacak para birimi Amerikan Doları olacak.
+         :-.format(price) - Bu da price adlı değişkenin değerini bu kurallara göre biçimlendirir.
