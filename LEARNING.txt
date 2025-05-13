@@ -48,3 +48,8 @@
          Yani binlik ayracı olarak virgül, ondalık ayracı olarak nokta kullanır.
          :-{ style: "currency", currency: "USD" } - Bu ayarlar şunları der: style: "currency" → Bu bir para birimi olacak. currency: "USD" → Kullanılacak para birimi Amerikan Doları olacak.
          :-.format(price) - Bu da price adlı değişkenin değerini bu kurallara göre biçimlendirir.
+
+Payload stepBystep:
+         :-collections folder içinde yeni collection kuruluyor.
+         :-payload.config.ts içinde yeni collection yazılıyor.
+
