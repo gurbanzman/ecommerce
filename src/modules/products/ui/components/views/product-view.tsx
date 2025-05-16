@@ -2,17 +2,29 @@
 
 // TODO: Add real ratings
 
+import { Fragment, useMemo } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Fragment } from "react";
 import { useTRPC } from "@/trpc/client";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
+
+import dynamic from "next/dynamic";
 
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { formatCurrency, generateTenantUrl } from "@/lib/utils";
 import { StarRating } from "@/components/star-rating";
 import { LinkIcon, StarIcon } from "lucide-react";
+
+const CartButton = dynamic(
+   () => import("../../components/cart-button").then(
+      (mod) => mod.CartButton,
+   ),
+   {
+      ssr: false,
+      loading: () => <Button disabled className="flex-1 bg-pink-400">Add to cart</Button>
+   }
+);
 
 interface ProductViewProps {
   productId: string;
@@ -21,9 +33,11 @@ interface ProductViewProps {
 
 export const ProductView = ({ tenantSlug, productId }: ProductViewProps) => {
   const trpc = useTRPC();
-  const { data } = useSuspenseQuery(
-    trpc.products.getOne.queryOptions({ id: productId })
-  );
+  const queryOptions = useMemo(() => {
+  return trpc.products.getOne.queryOptions({ id: productId });
+}, [productId]);
+
+  const { data } = useSuspenseQuery(queryOptions);
 
   return (
     <div className="px-4 lg:px-12 py-10">
@@ -107,12 +121,7 @@ export const ProductView = ({ tenantSlug, productId }: ProductViewProps) => {
             <div className="border-t lg:border-t-0 lg:border-l h-full">
                <div className="flex flex-col gap-4 p-6 border-b">
                   <div className="flex flex-row items-center gap-2">
-                     <Button
-                        variant={"elevated"}
-                        className="flex-1 bg-pink-400"
-                     >
-                        Add to cart
-                     </Button>
+                     <CartButton productId={productId} tenantSlug={tenantSlug}/>
                      <Button
                         variant={"elevated"}
                         className="size-12"

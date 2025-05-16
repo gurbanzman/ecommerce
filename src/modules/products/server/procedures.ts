@@ -3,9 +3,8 @@ import { DEFAULT_LIMIT } from "@/constants";
 import type { Sort, Where } from "payload";
 
 import { baseProcedure, createTRPCRouter } from "@/trpc/init";
-import { Category, Media } from "@/payload-types";
+import { Category, Media, Tenant } from "@/payload-types";
 import { sortValues } from "../search-params";
-import { Tenant } from "node_modules/@payloadcms/plugin-multi-tenant/dist/types";
 
 export const productsRouter = createTRPCRouter({
   getOne: baseProcedure
