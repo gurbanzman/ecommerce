@@ -53,3 +53,5 @@ Payload stepBystep:
          :-collections folder içinde yeni collection kuruluyor.
          :-payload.config.ts içinde yeni collection yazılıyor.
 
+:-useMemo - Bir değer aktardınız ve her defa render edilmesini istenmediğinde, sadece o değer değiştiği zaman render edilmesi gerektiğinde kullanılan harika bir React hook-dur.
+
