@@ -1,5 +1,6 @@
 "use client";
 
+import { useMemo } from "react";
 import { InboxIcon } from "lucide-react";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 
@@ -19,6 +20,8 @@ interface Props {
 export const ProductList = ({ category, tenantSlug, narrowView }: Props) => {
   const [filters] = useProductFilters();
 
+  const memoizedFilters = useMemo(() => filters, [JSON.stringify(filters)]);
+
   const trpc = useTRPC();
   const { data, hasNextPage, isFetchingNextPage, fetchNextPage } =
     useSuspenseInfiniteQuery(
@@ -26,7 +29,7 @@ export const ProductList = ({ category, tenantSlug, narrowView }: Props) => {
         {
           category,
           tenantSlug,
-          ...filters,
+          ...memoizedFilters,
           limit: DEFAULT_LIMIT,
         },
         {
